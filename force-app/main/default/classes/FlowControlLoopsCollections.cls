@@ -31,9 +31,10 @@ public with sharing class FlowControlLoopsCollections {
     public static String helloWorld(Integer x, Integer y) {
         if (x == null || y == null || x <= y) {
             return null;
-        } else 
+        } else {
         String result = 'Hello World!';
-        return result; 
+        return result;
+        }
     }
 
     /**
@@ -68,9 +69,12 @@ public with sharing class FlowControlLoopsCollections {
             return num1;
         } else if (num1 == null || num2 == null) {
             return null;
-        }  else if (condition) {
-            
+        }  else if (num1 > num2) {
+            largestNum = num1;
+            return largestNum;
         }
+        largestNum = num2;
+        return largestNum;
     }
 
 

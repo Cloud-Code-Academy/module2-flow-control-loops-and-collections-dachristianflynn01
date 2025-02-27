@@ -99,7 +99,13 @@ public with sharing class FlowControlLoopsCollections {
      * @return A string indicating whether the number is "Even" or "Odd", or null if the number is null.
      */
     public static String checkEvenOdd(Integer a) {
-        return null; // Replace null with the variable you used to store the result
+        Integer remainder = math.mod(a, 2);
+        
+        if (a == null) {
+            return null;
+        } else if (remainder == 0){
+            return 'Even';
+        } return 'Odd';
     }
 
     /**
@@ -110,7 +116,14 @@ public with sharing class FlowControlLoopsCollections {
      * @return A string indicating whether the input is "Empty", "Null", or "Contains Text".
      */
     public static String checkString(String a) {
-        return null; // Replace null with the variable you used to store the result
+        Boolean isNull = a == null;
+        Boolean isEmpty = a = '';
+
+        if (isNull = true){
+            return 'Null';
+        }   else if (isEmpty = true){
+                return 'Empty';
+            } return 'Contains Text'; 
     }
 
     /**
@@ -199,14 +212,14 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static List<Integer> createAndPopulateList() {
         // Create a new list of integers
-
+        List<Integer> numbers = new List<Integer>{1, 2, 3};
         // Add the integers 1, 2, and 3 to the list
         // add 1
         // add 2
         // add 3
 
         // Return the populated list
-        return null; // Replace null with the variable you used to store the result
+        return numbers;
     }
 
     /**
@@ -218,11 +231,10 @@ public with sharing class FlowControlLoopsCollections {
     public static List<Integer> createAndRemoveFromList() {
         // Create a new list of integers and add numbers 1 to 5
         List<Integer> numberList = new List<Integer>{1, 2, 3, 4, 5}; //DO NOT CHANGE
-
         // Remove the 3rd element (number 3) from the list
-        
+        numberList.clear(2)
         // Return the updated list
-        return null; // Replace null with the variable you used to store the result
+        return numberList; 
     }
 
     /**
@@ -234,10 +246,11 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static List<Integer> createIntegerList(Integer n) {
         // Create a new list of integers 
-
+        List<Integer> numbersFromOneToN =  new List<Integer>();
         /*
-        for() {
+        for(NumberLoop : numbersFromOneToN) {
             //add integer to the list
+            while numbersFromOneTon.contains(n)
         }
         */ 
 
@@ -257,8 +270,8 @@ public with sharing class FlowControlLoopsCollections {
         Set<String> stringSet = new Set<String>();
 
         //add strings to the set
-
-        return null; // Replace null with the variable you used to store the result
+        stringSet.add(inputList);
+        return stringSet;
     }
 
     /**

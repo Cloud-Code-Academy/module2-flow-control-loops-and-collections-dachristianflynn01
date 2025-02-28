@@ -49,8 +49,9 @@ public with sharing class FlowControlLoopsCollections {
     public static Boolean votingEligibility(Integer age) {
         if (age >= 18) {
             return true;
+        }  else {
+            return false; 
         }
-        return false; 
     }
 
     /**
@@ -69,12 +70,13 @@ public with sharing class FlowControlLoopsCollections {
             return num1;
         } else if (num1 == null || num2 == null) {
             return null;
-        }  else if (num1 > num2) {
+        } else if (num1 > num2) {
             largestNum = num1;
             return largestNum;
+        } else {
+            largestNum = num2;
+            return largestNum;
         }
-        largestNum = num2;
-        return largestNum;
     }
 
 
@@ -87,8 +89,16 @@ public with sharing class FlowControlLoopsCollections {
      * @return A string indicating whether the number is "Positive", "Negative", or "Zero", or null if the number is null.
      */
     public static String checkNumber(Integer a) {
-        return null; // Replace null with the variable you used to store the result
-    }
+        if (a == null) {
+            return null;
+        } else if (a > 0) {
+            return 'Positive';
+        } else if (a < 0) {
+            return 'Negative';
+        } else {
+            return 'Zero';
+        }
+    } 
 
     /**
      * Question 5
@@ -99,13 +109,16 @@ public with sharing class FlowControlLoopsCollections {
      * @return A string indicating whether the number is "Even" or "Odd", or null if the number is null.
      */
     public static String checkEvenOdd(Integer a) {
-        Integer remainder = math.mod(a, 2);
-        
         if (a == null) {
             return null;
-        } else if (remainder == 0){
+        }
+        
+        Integer remainder = math.mod(a, 2);
+        if (remainder == 0){
             return 'Even';
-        } return 'Odd';
+        } else {
+            return 'Odd';
+        }
     }
 
     /**
@@ -116,14 +129,13 @@ public with sharing class FlowControlLoopsCollections {
      * @return A string indicating whether the input is "Empty", "Null", or "Contains Text".
      */
     public static String checkString(String a) {
-        Boolean isNull = a == null;
-        Boolean isEmpty = a = '';
-
-        if (isNull = true){
+        if (a == null){
             return 'Null';
-        }   else if (isEmpty = true){
-                return 'Empty';
-            } return 'Contains Text'; 
+        } else if (String.isEmpty(a)){
+            return 'Empty';
+        } else {
+            return 'Contains Text'; 
+        }
     }
 
     /**
@@ -139,7 +151,17 @@ public with sharing class FlowControlLoopsCollections {
      * @return The grade for the given score.
      */
     public static String determineGrade(Integer score) {
-        return null; // Replace null with the variable you used to store the result
+        if (score >= 90) {
+            return 'A';
+        } else if (score >= 80) {
+            return 'B';
+        } else if (score >= 70) {
+            return 'C';
+        } else if (score >= 60) {
+            return 'D';
+        } else {
+            return 'F';
+        }
     }
 
 
@@ -151,13 +173,13 @@ public with sharing class FlowControlLoopsCollections {
      * @return The sum of all integers up to the limit.
      */
     public static Integer sumUpToLimit(Integer intLimit) {
-        /* 
-         for (){
-            
-         }
-        */
-
-        return null; // Replace null with the variable you used to store the result
+        List<Integer> integerCollection = new List<Integer>();
+        Integer sumOfIntegers = 0;
+        for (Integer i = 0; i < intLimit + 1; i++) {
+            integerCollection.add(i);
+            sumOfIntegers = sumOfIntegers + integerCollection.get(i);
+        }
+        return sumOfIntegers;
     }
 
     /**
@@ -168,15 +190,13 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static String returnHelloWorld() {
         // Initialize the result String
+        String concatenatedHelloWorld = '';
 
         // Use a for loop to append 'Hello World!;' to the result string three times
-        /* 
-         for (){
-            
+         for (Integer i = 1; i < 4; i++){
+            concatenatedHelloWorld = concatenatedHelloWorld + 'Hello World!; ';
          }
-        */
-
-        return null; // Replace null with the variable you used to store the result
+        return concatenatedHelloWorld; 
     }
 
     /**
@@ -230,11 +250,11 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static List<Integer> createAndRemoveFromList() {
         // Create a new list of integers and add numbers 1 to 5
-        List<Integer> numberList = new List<Integer>{1, 2, 3, 4, 5}; //DO NOT CHANGE
+       // List<Integer> numberList = new List<Integer>{1, 2, 3, 4, 5}; //DO NOT CHANGE
         // Remove the 3rd element (number 3) from the list
-        numberList.clear(2)
+       // numberList.clear(2)
         // Return the updated list
-        return numberList; 
+        return null; 
     }
 
     /**
@@ -270,8 +290,7 @@ public with sharing class FlowControlLoopsCollections {
         Set<String> stringSet = new Set<String>();
 
         //add strings to the set
-        stringSet.add(inputList);
-        return stringSet;
+        return null;
     }
 
     /**

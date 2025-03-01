@@ -211,17 +211,19 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static String repeatString(String inputString, Integer repeatCount) {
         // Initialize the result String
+        String repeatInputString = '';
 
         // Use a for loop to append the inputString to the result string repeatCount times
-        /*
-        for () {
+        for (Integer i = 1; i < repeatCount + 1; i++){
+            repeatInputString = repeatInputString + inputString;
 
-            // If it is not the last iteration, add a semicolon to separate the strings
+        // If it is not the last iteration, add a semicolon to separate the strings
+         if (i < repeatCount) {
+            repeatInputString = repeatInputString + '; ';
         }
-        */
-
+        }   
         // Return the final result string
-        return null; // Replace null with the variable you used to store the result
+        return repeatInputString;
     }
 
     /**
@@ -232,11 +234,12 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static List<Integer> createAndPopulateList() {
         // Create a new list of integers
-        List<Integer> numbers = new List<Integer>{1, 2, 3};
+        List<Integer> numbers = new List<Integer>{};
+
         // Add the integers 1, 2, and 3 to the list
-        // add 1
-        // add 2
-        // add 3
+        numbers.add(1); 
+        numbers.add(2); 
+        numbers.add(3); 
 
         // Return the populated list
         return numbers;
@@ -250,11 +253,13 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static List<Integer> createAndRemoveFromList() {
         // Create a new list of integers and add numbers 1 to 5
-       // List<Integer> numberList = new List<Integer>{1, 2, 3, 4, 5}; //DO NOT CHANGE
+    
+       List<Integer> numberList = new List<Integer>{1, 2, 3, 4, 5}; //DO NOT CHANGE
         // Remove the 3rd element (number 3) from the list
-       // numberList.clear(2)
+        numberList.remove(2);
+    
         // Return the updated list
-        return null; 
+        return numberList; 
     }
 
     /**
@@ -267,14 +272,12 @@ public with sharing class FlowControlLoopsCollections {
     public static List<Integer> createIntegerList(Integer n) {
         // Create a new list of integers 
         List<Integer> numbersFromOneToN =  new List<Integer>();
-        /*
-        for(NumberLoop : numbersFromOneToN) {
+        
+        for(Integer i = 1; i < n + 1; i++) {
             //add integer to the list
-            while numbersFromOneTon.contains(n)
+            numbersFromOneToN.add(i);
         }
-        */ 
-
-        return null; // Replace null with the variable you used to store the result
+        return numbersFromOneToN;
     }
 
     /**
@@ -290,7 +293,8 @@ public with sharing class FlowControlLoopsCollections {
         Set<String> stringSet = new Set<String>();
 
         //add strings to the set
-        return null;
+        stringSet.addAll(inputList);
+        return stringSet;
     }
 
     /**
@@ -301,14 +305,25 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Integer sumPositiveIntegers() {
         List<Integer> numbers = new List<Integer>{-1, 2, -3, 4, -5, 6}; //DO NOT CHANGE
+        Integer i = 0;
+        Integer positiveNumberSum = 0;
 
         // Loop through the list of integers
-            // if the number is negative skip this iteration
-        
+        for (Integer sumOfNumbersList : numbers) {
 
-        return null; // Replace null with the variable you used to store the result
-    }
+            // if the number is negative skip this iteration and increment i so the next loop will get the next item in the loop
+            if (numbers.get(i) <= 0) {
+                i++;
+              // if the number is positive, add it to positiveNumberSum and increment i so the next loop will get the next item in the loop
+        }     else if (numbers.get(i) > 0) {
+            positiveNumberSum = positiveNumberSum + numbers.get(i);
+                 i++;
+        }
+        }
+        return positiveNumberSum; 
 
+        }
+            
     /**
      * Question 16
      * Iterates over a list of strings and searches for a specific word. Once found, it breaks the loop.

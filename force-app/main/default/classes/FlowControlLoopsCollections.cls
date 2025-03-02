@@ -334,11 +334,28 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Integer findWordInList(String wordToFind, List<String> words) {
         // The variable to store the index of the word
+        Integer wordPosition = 0;
+        
+        // Check if the list contains the word we're looking for and return -1 if it doesn't
+        Boolean containsWord = words.contains(wordToFind);
+        if (containsWord == false) {
+            return -1;
+        }   else {
 
         // Loop through the list of words
-            // If the current word is the word to find, exit the loop
+        for (String wordCount : words) {
+            // Check if the current item from the list is the word we're looking for
+            containsWord = wordToFind == words.get(wordPosition);
 
-        return null; // Replace null with the variable you used to store the result
+            // If the current word is the word to find, exit the loop
+            if (containsWord == true) {
+                break;
+            } else {
+                wordPosition++;
+            }
+        }
+            return wordPosition;
+            }  
     }
 
     /**

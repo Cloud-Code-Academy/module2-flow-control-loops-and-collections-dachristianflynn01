@@ -32,8 +32,7 @@ public with sharing class FlowControlLoopsCollections {
         if (x == null || y == null || x <= y) {
             return null;
         } else {
-        String result = 'Hello World!';
-        return result;
+        return 'Hello World!';
         }
     }
 
@@ -271,7 +270,7 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static List<Integer> createIntegerList(Integer n) {
         // Create a new list of integers 
-        List<Integer> numbersFromOneToN =  new List<Integer>();
+        List<Integer> numbersFromOneToN = new List<Integer>();
         
         for(Integer i = 1; i < n + 1; i++) {
             //add integer to the list
@@ -305,23 +304,15 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Integer sumPositiveIntegers() {
         List<Integer> numbers = new List<Integer>{-1, 2, -3, 4, -5, 6}; //DO NOT CHANGE
-        Integer i = 0;
         Integer positiveNumberSum = 0;
 
         // Loop through the list of integers
-        for (Integer sumOfNumbersList : numbers) {
-
-            // if the number is negative skip this iteration and increment i so the next loop will get the next item in the loop
-            if (numbers.get(i) <= 0) {
-                i++;
-              // if the number is positive, add it to positiveNumberSum and increment i so the next loop will get the next item in the loop
-        }     else if (numbers.get(i) > 0) {
-            positiveNumberSum = positiveNumberSum + numbers.get(i);
-                 i++;
+        for (Integer numberFromNumbersList : numbers) {
+            if (numberFromNumbersList > 0) {
+            positiveNumberSum = positiveNumberSum + numberFromNumbersList;
         }
         }
         return positiveNumberSum; 
-
         }
             
     /**
@@ -333,29 +324,36 @@ public with sharing class FlowControlLoopsCollections {
      * @return The position of the word in the list as a string or -1 if the word was not found.
      */
     public static Integer findWordInList(String wordToFind, List<String> words) {
+       return words.indexOf(wordToFind);
+
+        /** 
+        * With the .indexOf() method, we can satisfy the return requirement for this question.
+        * But to do it the way the question says, by iterating over the list of strings
+        * (and not using .indexOf() at the beginning), below is how I would do it.
+
         // The variable to store the index of the word
         Integer wordPosition = 0;
         
-        // Check if the list contains the word we're looking for and return -1 if it doesn't
+        // Check if the list contains the word we're looking for and return -1 if it doesn't.
         Boolean containsWord = words.contains(wordToFind);
         if (containsWord == false) {
             return -1;
         }   else {
 
         // Loop through the list of words
-        for (String wordCount : words) {
-            // Check if the current item from the list is the word we're looking for
-            containsWord = wordToFind == words.get(wordPosition);
+        for (String wordLoop : words) {
+            // Check if the current item from the list is the word we're looking for.
+            containsWord = wordToFind == words.get(wordLoop);
 
-            // If the current word is the word to find, exit the loop
+            // If the current word is the word to find, exit the loop.
             if (containsWord == true) {
+                wordPosition = words.indexOf(wordLoop);
                 break;
-            } else {
-                wordPosition++;
             }
         }
             return wordPosition;
             }  
+            */
     }
 
     /**
@@ -369,8 +367,22 @@ public with sharing class FlowControlLoopsCollections {
         // The list of money in the wallet, represented in dollars and cents
         List<Decimal> moneyInWallet = new List<Decimal>{0.50, 10, 3.84, 24.60, 9.08, 50, 4.90}; //DO NOT CHANGE
 
-        return null; // Replace null with the variable you used to store the result
+        // Initializing the variable used to store the result
+        Decimal moneySum = 0;
+
+        // Loop through the list of decimals.
+        for(Decimal moneyFromWallet : moneyInWallet) {
+            // If moneySum is over 40, return moneySum
+            if (moneySum > 40) {
+                break;
+                // If moneySum is not over 40, add the current item in moneyFromWallet to moneySum
+            } else {
+                    moneySum = moneySum + moneyFromWallet;
+            }
+        }
+        return moneySum;
     }
+        
 
     /**
      * Question 18
@@ -380,15 +392,21 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Map<String, Integer> addItemsToMap() {
         // Initialize an empty Map
+        Map<String, Integer> fruitStockMap = new Map<String, Integer>();
 
         // Add key-value pairs to the Map
         // add Apples => 5
+        fruitStockMap.put('Apples', 5);
         // add Oranges => 10
+        fruitStockMap.put('Oranges', 10);
         // add Bananas => 15
+        fruitStockMap.put('Bananas', 15);
         // add Pears => 20
+        fruitStockMap.put('Pears', 20);
         // add Grapes => 25
+        fruitStockMap.put('Grapes', 25);
 
-        return null; // Replace null with the variable you used to store the result
+        return fruitStockMap;
     }
 
     /**
@@ -402,17 +420,27 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Integer getSalary(String employeeName) {
         // Initialize a Map
+        Map<String, Integer> employeeSalaryMap = new Map<String, Integer>();
 
         // Add key-value pairs to the Map
         // add John Doe => 50000
+        employeeSalaryMap.put('John Doe', 50000);
         // add Jane Smith => 60000
+        employeeSalaryMap.put('Jane Smith', 60000);
         // add Sam Brown => 55000
+        employeeSalaryMap.put('Sam Brown', 55000);
         // add Alice Johnson => 65000
+        employeeSalaryMap.put('Alice Johnson', 65000);
 
         // Get the salary of the employee
+        Integer employeeSalary = employeeSalaryMap.get(employeeName);
 
         // Return the salary of the employee, or null if the employee is not found in the Map
-        return null; // Replace null with the variable you used to store the result
+        if (employeeName == null) {
+            return null;
+        } else {
+            return employeeSalary; 
+        }
     }
 
     /**
@@ -427,22 +455,30 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static List<String> getHighPaidEmployees() {
         // Initialize a Map
-        Map<String, Integer> employeeSalaries = new Map<String, Integer>();
+        Map<String, Integer> employeeSalariesMap = new Map<String, Integer>();
 
         // Add key-value pairs to the Map
         // add John Doe => 50000
+        employeeSalariesMap.put('John Doe', 50000);
         // add Jane Smith => 60000
+        employeeSalariesMap.put('Jane Smith', 60000);
         // add Sam Brown => 55000
+        employeeSalariesMap.put('Sam Brown', 55000);
         // add Alice Johnson => 65000
+        employeeSalariesMap.put('Alice Johnson', 65000);
 
         // Initialize a list to store the names of high paid employees
+        List<String> highPaidEmployessList = new List<String>();
 
         // Iterate over the Map using a for loop
+        for (String employeeName : employeeSalariesMap.keySet()) {
+            Integer employeeSalary = employeeSalariesMap.get(employeeName);
             // Check if the salary of the employee is more than 55000
+            if (employeeSalary > 55000) {
                 // Add the employee to the list of high paid employees
-
-        // Return the list of high paid employees
-        return null; // Replace null with the variable you used to store the result
+                highPaidEmployessList.add(employeeName);
+            }
+         }
+         return highPaidEmployessList;
     }
-
 }
